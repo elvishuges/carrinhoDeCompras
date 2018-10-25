@@ -17,7 +17,7 @@ class CreateCupomDescontosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('localizador');
-            $table->decimal('desconto');
+            $table->decimal('desconto',6,2);
             $table->timestamps();
         });
     }
