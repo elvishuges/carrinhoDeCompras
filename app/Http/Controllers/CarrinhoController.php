@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Pedido;
 
 class CarrinhoController extends Controller
 {
@@ -13,8 +14,8 @@ class CarrinhoController extends Controller
 
     public function index(){
 
-        $pedidos = App\Pedidos ::where([
-             'status ' => 'RE',
+        $pedidos = Pedido ::where([
+             'status' => 'RE',
               'user_id' => Auth::id()
 
         ])-> get();
