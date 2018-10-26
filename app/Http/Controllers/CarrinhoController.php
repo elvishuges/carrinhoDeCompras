@@ -19,6 +19,13 @@ class CarrinhoController extends Controller
               'user_id' => Auth::id()
 
         ])-> get();
+        
+        dd([ //  acessanso o model
+            $pedidos,
+            $pedidos[0]->pedidos_produtos,
+         //   $pedidos[0]->pedidos_produtos[0]->produtos,
+
+        ]);
 
         return view('carrinho.index',compact('pedidos'));
     }

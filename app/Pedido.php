@@ -21,6 +21,7 @@ class Pedido extends Model
             ->select(\DB::raw('produto_id,sum(desconto) as descontos,sum(valor) as valores,
         count(1) as qtd'))
             ->groupBy('produto_id') // toas informaçoes acima agrupada por produto adicionado ao carrinho
-            ->orderBy('produto_id', 'desc');
+            ->orderBy('produto_id', 'desc'); // os ultimos produtos criados ficam primeiro em nosso carrinho
+            // (ordenados)
     }
 }
