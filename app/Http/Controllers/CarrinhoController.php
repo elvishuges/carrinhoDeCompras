@@ -14,20 +14,20 @@ class CarrinhoController extends Controller
 
     public function index(){
 
-        $pedidos = Pedido ::where([
+        $pedido = Pedido ::where([
              'status' => 'RE',
               'user_id' => Auth::id()
 
         ])-> get();
         
-        dd([ //  acessanso o model
-            $pedidos,
-            $pedidos[0]->pedidos_produtos,
-         //   $pedidos[0]->pedidos_produtos[0]->produtos,
+            //   dd([ //  acessanso o model usa-se isso
+            //      $pedidos,
+            //       $pedidos[0]->pedido_produtos,
+            //       $pedidos[0]->pedido_produtos[0]->produtos->nome,
 
-        ]);
+            // ]);
 
-        return view('carrinho.index',compact('pedidos'));
+        return view('carrinho.index',compact('pedido'));
     }
 
 }

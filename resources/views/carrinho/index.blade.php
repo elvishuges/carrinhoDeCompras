@@ -17,7 +17,7 @@
                 <strong>{{ Session::get('mensagem-falha') }}</strong>
             </div>
         @endif
-        @forelse ($pedidos as $pedido)
+        @forelse ($pedido as $pedido)
             <h5 class="col l6 s12 m6"> Pedido: {{ $pedido->id }} </h5>
             <h5 class="col l6 s12 m6"> Criado em: {{ $pedido->created_at->format('d/m/Y H:i') }} </h5>
             <table>
