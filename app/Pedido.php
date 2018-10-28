@@ -12,7 +12,7 @@ class Pedido extends Model
         'status'
     ];
     /**
-    em DB::raw, ele trarria toda a raw.
+    em DB::raw, ele traria toda a raw.
     Mas informamos que queremos determinada informação da raw
      */
     public function pedido_produtos()
@@ -23,5 +23,13 @@ class Pedido extends Model
             ->groupBy('produto_id') // toas informaçoes acima agrupada por produto adicionado ao carrinho
             ->orderBy('produto_id', 'desc'); // os ultimos produtos criados ficam primeiro em nosso carrinho
             // (ordenados)
+    }
+    
+    // recece um array que é passado pro where do Model Pedido
+    public static function consultaId($where)
+    {   
+        // retorna primeiro registro que comtem as informacoes
+        $pedido = self::where($where)->first(['id']); //nesse caso queremos apenas o id
+        return !empty($pedido->id) ? $pedido->id : null;
     }
 }
