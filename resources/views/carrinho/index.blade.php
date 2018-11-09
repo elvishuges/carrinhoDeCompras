@@ -106,8 +106,33 @@
     <input type="hidden" name="id">
 </form>
 
-@push('scripts')
-    <script type="text/javascript" src="/js/carrinho.js"></script>
-@endpush
+
+
+
+<script  >
+  function removerProduto(p_idpedido,p_idproduto,p_item){
+     $.ajax({
+         url: "{{route('carrinho.remover')}}",
+         method: "DELETE",
+         data:{
+             _token:"{{csrf_token()}}",
+             pedido_id: p_idpedido,
+             produto_id:p_idproduto,
+             item: p_item
+         }
+
+     })
+     .always(function(){
+             location.reload();
+     });
+
+     
+  }
+</script>
+
+
+
+
 
 @endsection
+
