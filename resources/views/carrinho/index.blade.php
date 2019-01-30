@@ -106,9 +106,13 @@
     <input type="hidden" name="id">
 </form>
 
+@push('scripts')
+scr
+    <script  src="js/carrinho.js"></script>
+@endpush
 
 
-
+<!-- 
 <script  >
   function removerProduto(p_idpedido,p_idproduto,p_item){
      $.ajax({
@@ -128,7 +132,7 @@
 
      
   }
-</script>
+</script> -->
 
 
 

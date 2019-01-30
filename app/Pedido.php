@@ -12,8 +12,8 @@ class Pedido extends Model
         'status'
     ];
     /**
-    em DB::raw, ele traria toda a raw.
-    Mas informamos que queremos determinada informação da raw
+    em DB::row, ele traria toda a row.
+    Mas informamos que queremos determinada informação da row
      */
     public function pedido_produtos()
     {
@@ -28,7 +28,8 @@ class Pedido extends Model
     // recece um array que é passado pro where do Model Pedido
     public static function consultaId($where)
     {   
-        // retorna primeiro registro que comtem as informacoes
+        // Retorna primeiro registro que comtem as informacoes
+        // self diz que abusca é no proprio model
         $pedido = self::where($where)->first(['id']); //nesse caso queremos apenas o id
         return !empty($pedido->id) ? $pedido->id : null;
     }

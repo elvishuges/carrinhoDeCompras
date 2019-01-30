@@ -36,8 +36,9 @@ class CarrinhoController extends Controller
         $req = Request();
         $idproduto = $req->input('id');
 
-        $produto = Produto::find($idproduto);
-        if( empty($produto->id) ) {
+        $produto = Produto::find($idproduto); // recebe 
+        if( empty($produto->id) ) { // verifica se encontrou o produto
+            // exibe mensagem temporaria na view
             $req->session()->flash('mensagem-falha', 'Produto não encontrado em nossa loja!');
             return redirect()->route('carrinho.index');
         }
@@ -77,7 +78,7 @@ class CarrinhoController extends Controller
     public function remover()
     {
 
-        $this->middleware('VerifyCsrfToken');
+        $this->middleware('VerifyCsrfToken'); // validando() se o token é valido )
 
         $req = Request();
         $idpedido           = $req->input('pedido_id');
